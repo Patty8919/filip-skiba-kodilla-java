@@ -19,6 +19,11 @@ HELP.md
 *.ipr
 **/out/ **/build/
 /out/
+/kodilla-testing/out/
+/kodilla-testing/build/
+
+
+
 
 
 ### NetBeans ###
