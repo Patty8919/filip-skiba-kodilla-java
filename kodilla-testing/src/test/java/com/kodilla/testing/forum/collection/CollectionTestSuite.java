@@ -22,21 +22,18 @@ public class CollectionTestSuite {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> evenList = oddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing oddNumbersExterminator with empty list");
-        Assert.assertEquals(emptyList.size(),evenList.size());
+        Assert.assertEquals(0,evenList.size());
     }
     @Test
     public void testOddNumbersExterminatorNormalList(){
         ArrayList<Integer> sampleList = new ArrayList<Integer>();
+        System.out.println("Fill sample list...");
+        sampleList.add(1);
+        sampleList.add(3);
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> evenList = oddNumbersExterminator.exterminate(sampleList);
-        System.out.println("Fill sample list...");
-            for(int i =0; i<20; i++){
-                sampleList.add(i);
-            }
         System.out.println("Try to find odd numbers in even list");
-        for(Integer number: evenList){
-            Assert.assertEquals(0,number%2);
-        }
+        Assert.assertEquals(0,evenList.size());
     }
 
 }
