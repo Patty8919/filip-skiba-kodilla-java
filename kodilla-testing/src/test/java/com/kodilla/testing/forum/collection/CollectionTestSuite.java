@@ -29,11 +29,12 @@ public class CollectionTestSuite {
         ArrayList<Integer> sampleList = new ArrayList<Integer>();
         System.out.println("Fill sample list...");
         sampleList.add(1);
+        sampleList.add(2);
         sampleList.add(3);
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> evenList = oddNumbersExterminator.exterminate(sampleList);
         System.out.println("Try to find odd numbers in even list");
-        Assert.assertEquals(0,evenList.size());
+        Assert.assertEquals(1,evenList.size());
     }
 
 }
