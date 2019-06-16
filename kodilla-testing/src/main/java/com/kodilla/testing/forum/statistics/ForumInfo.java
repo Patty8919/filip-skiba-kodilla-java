@@ -6,9 +6,9 @@ public class ForumInfo {
     private int usersCount;
     private int totalPosts;
     private int totalComments;
-    private int avgPostsPerUser;
-    private int avgCommentsPerUser;
-    private int avgCommentsPerPost;
+    private double avgPostsPerUser;
+    private double avgCommentsPerUser;
+    private double avgCommentsPerPost;
 
     public void calculateAdvStatistics(Statistics statistics){
         usersCount=statistics.usersNames().size();
@@ -18,18 +18,18 @@ public class ForumInfo {
             avgPostsPerUser=0;
         }
         else{
-                avgPostsPerUser = statistics.postsCount() / statistics.usersNames().size();
+                avgPostsPerUser = (double)statistics.postsCount() /statistics.usersNames().size();
         }
         if(statistics.commentsCount()==0 || statistics.usersNames().size()==0){
             avgCommentsPerUser=0;
         }
         else {
-            avgCommentsPerUser = statistics.commentsCount() / statistics.usersNames().size();
+            avgCommentsPerUser = (double)statistics.commentsCount() / statistics.usersNames().size();
         }
         if(statistics.commentsCount()==0 || statistics.postsCount()==0)
             avgCommentsPerPost=0;
         else {
-            avgCommentsPerPost = statistics.commentsCount() / statistics.postsCount();
+            avgCommentsPerPost = (double)statistics.commentsCount() / statistics.postsCount();
         }
     }
 
@@ -45,15 +45,15 @@ public class ForumInfo {
         return totalComments;
     }
 
-    public int getAvgPostsPerUser() {
+    public double getAvgPostsPerUser() {
         return avgPostsPerUser;
     }
 
-    public int getAvgCommentsPerUser() {
+    public double getAvgCommentsPerUser() {
         return avgCommentsPerUser;
     }
 
-    public int getAvgCommentsPerPost() {
+    public double getAvgCommentsPerPost() {
         return avgCommentsPerPost;
     }
 

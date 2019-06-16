@@ -109,5 +109,22 @@ public class ForumInfoTestSuite {
         Assert.assertEquals(100,forumInfo.getUsersCount());
     }
 
+    @Test
+    public void testCalculateAdvStatisticsAVG(){
+        List<String> usersList = Arrays.asList(new String[25]);
+        Statistics statisticsMock = mock(Statistics.class);
+        when(statisticsMock.usersNames()).thenReturn(usersList);
+        when(statisticsMock.commentsCount()).thenReturn(31);
+        when(statisticsMock.postsCount()).thenReturn(40);
+
+        ForumInfo forumInfo = new ForumInfo();
+        //When
+        forumInfo.calculateAdvStatistics(statisticsMock);
+        //Then
+        Assert.assertEquals(0.77,forumInfo.getAvgCommentsPerPost(),0.01);
+        Assert.assertEquals(1.24,forumInfo.getAvgCommentsPerUser(),0.01);
+        Assert.assertEquals(1.60,forumInfo.getAvgPostsPerUser(),0.01);
+    }
+
 
 }
