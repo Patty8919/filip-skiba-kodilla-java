@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 public class BookDirectoryTestSuite {
-
+// Generator
     private List<Book> generateListOfNBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<Book>();
         for(int n = 1; n <= booksQuantity; n++){
