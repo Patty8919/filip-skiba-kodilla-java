@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Continent {
+public final class Continent {
     private final String countinentName;
     private final List<Country> countryList = new ArrayList<Country>();
 
-    public Continent(String countinentName) {
+    public Continent(final String countinentName) {
         this.countinentName = countinentName;
     }
 
