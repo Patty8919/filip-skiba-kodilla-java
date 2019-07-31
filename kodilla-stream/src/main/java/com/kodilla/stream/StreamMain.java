@@ -9,7 +9,7 @@ public class StreamMain {
     public static void main(String[] args) {
 
         Forum forum = new Forum();
-        Map<Integer, ForumUser>theResultMapOfUsers = forum.getList().stream()
+        Map<Integer, ForumUser> theResultMapOfUsers = forum.getList().stream()
                 .filter(forumUser -> forumUser.getSex()=='M')
                 .filter(forumUser -> forumUser.getDateOfBirth().getYear()<=1999)
                 .filter(forumUser -> forumUser.getPostsCount()>0)
