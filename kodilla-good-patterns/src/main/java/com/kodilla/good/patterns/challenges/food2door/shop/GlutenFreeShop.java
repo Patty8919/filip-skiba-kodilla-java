@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class GlutenFreeShop implements Distributors {
 
-    Distributor distributor = new Distributor("GlutenFreeShop");
+    private Distributor distributor = new Distributor("GlutenFreeShop");
     private HashMap<Integer, Product> products = new HashMap<>();
 
     public GlutenFreeShop() {
