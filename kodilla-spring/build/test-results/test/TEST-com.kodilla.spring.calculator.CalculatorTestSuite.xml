@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.spring.calculator.CalculatorTestSuite" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-08-13T07:44:48" hostname="filip-X550JK" time="0.293">
+  <properties/>
+  <testcase name="testDivideValues" classname="com.kodilla.spring.calculator.CalculatorTestSuite" time="0.069"/>
+  <testcase name="testMultiplyValues" classname="com.kodilla.spring.calculator.CalculatorTestSuite" time="0.098"/>
+  <testcase name="testAddValues" classname="com.kodilla.spring.calculator.CalculatorTestSuite" time="0.063"/>
+  <testcase name="testSubtractValues" classname="com.kodilla.spring.calculator.CalculatorTestSuite" time="0.06"/>
+  <system-out><![CDATA[2019-08-13 09:44:48.281  INFO 18065 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.kodilla.spring.calculator.CalculatorTestSuite], using SpringBootContextLoader
+2019-08-13 09:44:48.282  INFO 18065 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.kodilla.spring.calculator.CalculatorTestSuite]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-08-13 09:44:48.282  INFO 18065 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.kodilla.spring.calculator.CalculatorTestSuite]: CalculatorTestSuite does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2019-08-13 09:44:48.287  INFO 18065 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.kodilla.spring.SpringRunner for test class com.kodilla.spring.calculator.CalculatorTestSuite
+2019-08-13 09:44:48.288  INFO 18065 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-08-13 09:44:48.289  INFO 18065 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@13a0f455, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3bc35416, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@32a143e2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@20019fbe, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3497d5b7, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@15d554d7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2dd3bbdc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1833db7, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@b336a5d]
+2.5
+7.0
+6.0
+1.0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
