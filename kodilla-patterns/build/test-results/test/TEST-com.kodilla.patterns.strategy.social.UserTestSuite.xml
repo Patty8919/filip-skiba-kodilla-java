@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.patterns.strategy.social.UserTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-15T16:47:36" hostname="filip-X550JK" time="0.003">
-  <properties/>
-  <testcase name="testIndividualSharingStrategy" classname="com.kodilla.patterns.strategy.social.UserTestSuite" time="0.003"/>
-  <system-out><![CDATA[Publisher was: Facebook
-Now publisher is: Twitter
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
