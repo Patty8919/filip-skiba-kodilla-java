@@ -4,7 +4,7 @@ gitHELP.md
 HELP.md
 >>>>>>> 7284de750051944185680423050edd9dccc7f83e
 .gradle
-/build/
+**/build/
 !gradle/wrapper/gradle-wrapper.jar
 ### STS ###
 .apt_generated
@@ -21,9 +21,7 @@ HELP.md
 *.iml
 *.ipr
 **/out/ **/build/
-/out/
-/kodilla-testing/out/
-/kodilla-testing/build/
+
 
 
 
