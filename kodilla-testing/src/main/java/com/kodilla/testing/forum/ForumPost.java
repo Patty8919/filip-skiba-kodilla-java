@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.kodilla.testing.forum;
 
 public class ForumPost {
@@ -34,4 +35,42 @@ public class ForumPost {
         result = 31 * result + author.hashCode();
         return result;
     }
+=======
+package com.kodilla.testing.forum;
+
+public class ForumPost {
+    String postBody;
+    String author;
+
+    public ForumPost(String postBody, String author) {
+        this.postBody = postBody;
+        this.author = author;
+    }
+
+    public String getPostBody() {
+        return postBody;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ForumPost forumPost = (ForumPost) o;
+
+        if (!postBody.equals(forumPost.postBody)) return false;
+        return author.equals(forumPost.author);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = postBody.hashCode();
+        result = 31 * result + author.hashCode();
+        return result;
+    }
+>>>>>>> 7259dfe96ba4b4a6129cc9ead52c842e94ca297f
 }
