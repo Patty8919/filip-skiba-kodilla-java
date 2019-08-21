@@ -23,10 +23,6 @@ HELP.md
 **/out/ **/build/
 
 
-
-
-
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
