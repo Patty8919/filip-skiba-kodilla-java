@@ -5,6 +5,7 @@ HELP.md
 >>>>>>> 7284de750051944185680423050edd9dccc7f83e
 .gradle
 **/build/
+**/out/
 !gradle/wrapper/gradle-wrapper.jar
 ### STS ###
 .apt_generated

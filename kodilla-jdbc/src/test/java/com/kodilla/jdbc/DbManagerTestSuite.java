@@ -39,8 +39,9 @@ public class DbManagerTestSuite {
         statement.close();
         Assert.assertEquals(5, counter);
     }
+
     @Test
-    public void testSelectUsersAndPosts() throws SQLException{
+    public void testSelectUsersAndPosts() throws SQLException {
         DbManager dbManager = DbManager.getInstance();
 
         String activeUsers = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) > 2";
@@ -51,8 +52,8 @@ public class DbManagerTestSuite {
         while (rs.next()) {
             System.out.println(
                     rs.getString("FIRSTNAME") + ", " +
-                    rs.getString("LASTNAME") + ", "+
-                    rs.getInt("POSTS_NUMBER"));
+                            rs.getString("LASTNAME") + ", " +
+                            rs.getInt("POSTS_NUMBER"));
 
             counter++;
         }
