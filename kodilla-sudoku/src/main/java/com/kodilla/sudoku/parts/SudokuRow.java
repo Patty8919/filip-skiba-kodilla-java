@@ -9,10 +9,19 @@ public class SudokuRow {
         makeNewRow();
     }
 
+
     public void makeNewRow() {
         for (int i = 0; i < 9; i++) {
             row.add(new SudokuElement());
         }
+    }
+
+    public void setRow(ArrayList<SudokuElement> row) {
+        this.row = row;
+    }
+
+    public ArrayList<SudokuElement> getRow() {
+        return row;
     }
 
     public SudokuElement getRowElement(int col) {

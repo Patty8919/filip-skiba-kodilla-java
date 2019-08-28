@@ -1,12 +1,18 @@
 package com.kodilla.sudoku.parts;
 
+import com.kodilla.sudoku.Prototype;
+
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashSet;
 
 
-public class SudokuBoard {
+public class SudokuBoard extends Prototype {
     private ArrayList<SudokuRow> board = new ArrayList<>();
     private Sections sections = new Sections();
+
+    public ArrayList<SudokuRow> getBoard() {
+        return board;
+    }
 
     public void makeNewBoard() {
         for (int i = 0; i < 9; i++) {
@@ -84,5 +90,26 @@ public class SudokuBoard {
         }
         return resultList;
     }
+
+    public long getEmptyElementsCount(){
+        return getAllElements().stream().filter(e->e.getValue()==-1).count();
+
+    }
+
+    public SudokuBoard deepCopy() throws CloneNotSupportedException {
+        SudokuBoard clonedBoard = (SudokuBoard) super.clone();
+        clonedBoard.board = new ArrayList<>();
+        for (SudokuRow rowList : board) {
+            SudokuRow clonedList = new SudokuRow();
+            for (SudokuElement element : getAllElements()) {
+                clonedList.getRow().add(element);
+            }
+            clonedBoard.getBoard().clear();
+            clonedBoard.getBoard().add(clonedList);
+        }
+        return clonedBoard;
+    }
+
+
 
 }
