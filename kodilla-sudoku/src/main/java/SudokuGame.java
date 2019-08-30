@@ -10,12 +10,12 @@ public class SudokuGame {
         sudokuBoard.setElementValue(0, 1, 2);
         sudokuBoard.setElementValue(0, 2, 3);
 
-        try {
-            SudokuBoard sudokuBoard1 = sudokuBoard.deepCopy();
+     /*   try {
+         //   SudokuBoard sudokuBoard1 = sudokuBoard.deepCopy();
             System.out.println(sudokuBoard1.getElement(0,1));
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
         //   sudokuBoard.printBoard();

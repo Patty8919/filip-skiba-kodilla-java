@@ -1,10 +1,6 @@
 package com.kodilla.sudoku.parts;
 
-import com.sun.deploy.util.ArrayUtil;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 
 public class SudokuElement {
 

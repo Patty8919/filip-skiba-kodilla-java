@@ -96,7 +96,7 @@ public class SudokuBoard extends Prototype {
 
     }
 
-    public SudokuBoard deepCopy() throws CloneNotSupportedException {
+ /*   public SudokuBoard deepCopy() throws CloneNotSupportedException {
         SudokuBoard clonedBoard = (SudokuBoard) super.clone();
         clonedBoard.board = new ArrayList<>();
         for (SudokuRow rowList : board) {
@@ -108,7 +108,7 @@ public class SudokuBoard extends Prototype {
             clonedBoard.getBoard().add(clonedList);
         }
         return clonedBoard;
-    }
+    }*/
 
 
 
