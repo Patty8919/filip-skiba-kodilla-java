@@ -4,11 +4,14 @@ import com.kodilla.sudoku.Prototype;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 
 
 public class SudokuBoard extends Prototype {
+
     private ArrayList<SudokuRow> board = new ArrayList<>();
     private Sections sections = new Sections();
+    private StringBuilder stringBuilder = new StringBuilder();
 
     public ArrayList<SudokuRow> getBoard() {
         return board;
@@ -18,17 +21,27 @@ public class SudokuBoard extends Prototype {
         for (int i = 0; i < 9; i++) {
             this.board.add(new SudokuRow());
         }
+        for (SudokuRow sudokuRow : board) {
+            sudokuRow.makeNewRow();
+        }
     }
+
 
     public SudokuBoard() {
         makeNewBoard();
         initializeCoordinates();
     }
 
-    public void printBoard() {
+    public String printBoard() {
+        String drawedBoard = "";
+        String line = " ------  ------  ------  ------  ------  ------  ------  ------  ------";
         for (SudokuRow r : this.board) {
-            System.out.println(r);
+            drawedBoard += line + "\n" + r.drawRow() + "\n";
+            //         System.out.println(r.drawRow());
         }
+        drawedBoard += line;
+        return drawedBoard;
+        //    System.out.println(drawedBoard);
     }
 
     public void setElementValue(int row, int col, int value) {
@@ -39,7 +52,6 @@ public class SudokuBoard extends Prototype {
     public SudokuElement getElement(int row, int col) {
         return board.get(row).getRowElement(col);
     }
-
 
 
     public void initializeCoordinates() {
@@ -61,20 +73,6 @@ public class SudokuBoard extends Prototype {
         return resultList;
     }
 
-    public ArrayList<SudokuElement> getElementsFromSection(int row, int col) {
-
-        ArrayList<SudokuElement> resultList = new ArrayList<>();
-
-        int sectionNumber = this.sections.getSectionNumberByCoordinates(new Coordinates(row, col));
-        ArrayList<Coordinates> list = this.sections.getCoordinatesBySection(sectionNumber);
-        for (Coordinates coordinates : list) {
-            SudokuElement element = getElement(coordinates.getRow(), coordinates.getColumn());
-            resultList.add(element);
-
-        }
-        return resultList;
-    }
-
     public ArrayList<SudokuElement> getElementsInColumn(int col) {
         ArrayList<SudokuElement> resultList = new ArrayList<>();
         for (SudokuRow row : board) {
@@ -91,25 +89,36 @@ public class SudokuBoard extends Prototype {
         return resultList;
     }
 
-    public long getEmptyElementsCount(){
-        return getAllElements().stream().filter(e->e.getValue()==-1).count();
+    public long getEmptyElementsCount() {
+        return getAllElements().stream().filter(e -> e.getValue() == -1).count();
 
     }
 
- /*   public SudokuBoard deepCopy() throws CloneNotSupportedException {
+    public SudokuBoard deepCopy() throws CloneNotSupportedException {
         SudokuBoard clonedBoard = (SudokuBoard) super.clone();
         clonedBoard.board = new ArrayList<>();
         for (SudokuRow rowList : board) {
-            SudokuRow clonedList = new SudokuRow();
-            for (SudokuElement element : getAllElements()) {
-                clonedList.getRow().add(element);
+            SudokuRow clonedRowList = new SudokuRow();
+            for (SudokuElement element : rowList.getRow()) {
+                clonedRowList.getRow().add(new SudokuElement(element.getValue(), element.getCoordinates(), element.getPossibleValues()));
             }
-            clonedBoard.getBoard().clear();
-            clonedBoard.getBoard().add(clonedList);
+
+            clonedBoard.getBoard().add(clonedRowList);
         }
         return clonedBoard;
-    }*/
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SudokuBoard that = (SudokuBoard) o;
+        return Objects.equals(board, that.board) &&
+                Objects.equals(sections, that.sections);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(board, sections);
+    }
 }

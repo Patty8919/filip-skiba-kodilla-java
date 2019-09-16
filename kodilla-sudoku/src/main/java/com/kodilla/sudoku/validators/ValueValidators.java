@@ -43,15 +43,13 @@ public class ValueValidators {
         return false;
     }
 
-    public boolean isElementEmpty(int row, int col, SudokuBoard sudokuBoard) {
-        SudokuElement elementToCompare = sudokuBoard.getElement(row, col);
-        if (elementToCompare.getValue() == -1) {
+    public boolean isValueValid(int row, int col, int currentValue, SudokuBoard board) {
+        if (!isValueInSection(row, col, currentValue, board) && !isValueInColumn(col, currentValue, board) && !isValueInRow(row, currentValue, board)) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
-
-
 
 
 }
