@@ -3,6 +3,7 @@ package com.kodilla.sudoku.controller;
 import com.kodilla.sudoku.SudokuResolver;
 import com.kodilla.sudoku.parts.SudokuBoard;
 import com.kodilla.sudoku.sample.SampleBoard;
+import com.kodilla.sudoku.validators.ValueValidators;
 
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ public class GameController {
     private SudokuBoard sudokuBoard = new SudokuBoard();
     private SudokuResolver sudokuResolver = new SudokuResolver();
     private SampleBoard sampleBoard = new SampleBoard();
+    private ValueValidators valueValidator = new ValueValidators();
 
     public void startGame() {
         System.out.println("Welcome to Sudoku resolver.");
@@ -26,6 +28,7 @@ public class GameController {
             case 1:
                 makeBoard();
                 scan.close();
+                break;
             case 2:
                 sudokuResolver.resolve(sudokuBoard);
                 if (sudokuResolver.getResolvedBoard().getEmptyElementsCount() == 0) {
@@ -37,14 +40,17 @@ public class GameController {
                 }
                 sudokuBoard = new SudokuBoard();
                 startGame();
+                break;
 
             case 3:
                 System.out.println(this.sudokuBoard.printBoard());
                 startGame();
+                break;
 
             case 4:
                 System.out.println(sampleBoard.getSampleBoard().printBoard());
                 startGame();
+                break;
             case 5:
                 sudokuResolver.resolve(sampleBoard.getSampleBoard());
                 if (sudokuResolver.getResolvedBoard().getEmptyElementsCount() == 0) {
@@ -56,6 +62,7 @@ public class GameController {
                 }
                 sudokuBoard = new SudokuBoard();
                 startGame();
+                break;
             case 6:
                 System.exit(1);
         }
@@ -80,17 +87,31 @@ public class GameController {
 
         if (inputValidator(data)) {
             retrieveData();
-            System.out.println("Your value on row: " + row + " and column: " + col + " is: " + value);
-            sudokuBoard.setElementValue(row - 1, col - 1, value);
+
+            if(valueValidator.isValueInRow(value,row-1,sudokuBoard)) {
+                System.out.println("The value "+ value +" appears in a row "+ row+ ". Change your value.");
+            }
+            else if(valueValidator.isValueInColumn(col-1,value,sudokuBoard)){
+                System.out.println("The value "+ value +" appears in a column "+ col+ ". Change your value.");
+            }
+            else if(valueValidator.isValueInSection(row-1,col-1,value,sudokuBoard)){
+                System.out.println("The value "+ value +" appears in a section. Change your value.");
+            }
+            else{
+                sudokuBoard.setElementValue(row - 1, col - 1, value);
+                System.out.println("Your value on row: " + row + " and column: " + col + " is: " + value);
+            }
 
             System.out.println("Do you want to continue? Y/N");
             String decision = scanner.nextLine().toUpperCase();
             switch (decision) {
                 case "Y":
                     makeBoard();
-                case "N":
+                    break;
+                default:
                     startGame();
                     scanner.close();
+
             }
         } else {
             makeBoard();
