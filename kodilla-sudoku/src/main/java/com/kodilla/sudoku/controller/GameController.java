@@ -82,7 +82,7 @@ public class GameController {
 
     public void makeBoard() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Put value on row and column (For example 245 will set value 5 on a row 4 and column 5)");
+        System.out.println("Put value on row and column (For example 245 will set value 5 on a row 2 and column 4)");
         data = scanner.nextLine();
 
         if (inputValidator(data)) {
