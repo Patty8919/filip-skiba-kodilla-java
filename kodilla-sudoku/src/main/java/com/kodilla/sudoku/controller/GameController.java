@@ -88,7 +88,7 @@ public class GameController {
         if (inputValidator(data)) {
             retrieveData();
 
-            if(valueValidator.isValueInRow(value,row-1,sudokuBoard)) {
+            if(valueValidator.isValueInRow(row-1,value,sudokuBoard)) {
                 System.out.println("The value "+ value +" appears in a row "+ row+ ". Change your value.");
             }
             else if(valueValidator.isValueInColumn(col-1,value,sudokuBoard)){
