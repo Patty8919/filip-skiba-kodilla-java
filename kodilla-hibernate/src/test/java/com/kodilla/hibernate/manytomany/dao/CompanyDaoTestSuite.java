@@ -61,6 +61,10 @@ public class CompanyDaoTestSuite {
             companyDao.deleteById(softwareMachineId);
             companyDao.deleteById(dataMaestersId);
             companyDao.deleteById(greyMatterId);
+
+            employeeDao.deleteById(johnSmith.getId());
+            employeeDao.deleteById(stephanieClarckson.getId());
+            employeeDao.deleteById(lindaKovalsky.getId());
         } catch (Exception e) {
             //do nothing
         }
@@ -100,17 +104,24 @@ public class CompanyDaoTestSuite {
 
         //When
         List<Employee> resultEmployees = employeeDao.retrieveEmployeesWithLastName("Clarckson");
+        List<Employee> resultEmployees2 = employeeDao.retrieveEmployeesWithLastNameLike("th").orElseThrow(null);
         List<Company> resultCompanies = companyDao.retrieveCompaniesWithNameStartedWith("Gre");
 
         //Then
         Assert.assertEquals(1, resultEmployees.size());
+        Assert.assertEquals(1, resultEmployees2.size());
         Assert.assertEquals(1, resultCompanies.size());
+
 
         //CleanUp
         try {
             companyDao.deleteById(softwareMachineId);
             companyDao.deleteById(dataMaestersId);
             companyDao.deleteById(greyMatterId);
+
+            employeeDao.deleteById(johnSmith.getId());
+            employeeDao.deleteById(stephanieClarckson.getId());
+            employeeDao.deleteById(lindaKovalsky.getId());
         } catch (Exception e) {
             //do nothing
         }
