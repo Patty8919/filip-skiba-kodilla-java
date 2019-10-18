@@ -21,7 +21,7 @@ public class SearchingFacade {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(SearchingFacade.class);
 
-    public void processSearchingEmployee(String lastname) {
+    public List<Employee> processSearchingEmployee(String lastname) {
         List<Employee> employees = employeeDao.retrieveEmployeesWithLastNameLike(lastname).orElse(new ArrayList<Employee>());
         if (employees.size() != 0) {
             for (Employee employee : employees) {
@@ -30,9 +30,10 @@ public class SearchingFacade {
         } else {
             LOGGER.error("Can not find any employee with last name contains: " + lastname);
         }
+        return employees;
     }
 
-    public void processSearchingCompany(String name) {
+    public List<Company> processSearchingCompany(String name) {
         List<Company> companies = companyDao.retrieveCompanyWithName(name).orElse(new ArrayList<Company>());
         if (companies.size() != 0) {
             for (Company company : companies) {
@@ -41,5 +42,6 @@ public class SearchingFacade {
         } else {
             LOGGER.error("Can not find any company with name contains: " + name);
         }
+        return companies;
     }
 }

@@ -9,7 +9,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.assertj.AssertableApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -28,22 +31,23 @@ public class SearchingFacadeTestSuite {
 
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
         Employee lukasJavorsky = new Employee("Lukas", "Javorsky");
 
         //When
         employeeDao.save(johnSmith);
         employeeDao.save(stephanieClarckson);
-        employeeDao.save(lindaKovalsky);
         employeeDao.save(lukasJavorsky);
 
-        searchingFacade.processSearchingEmployee("sky");
+        List<Employee> employees = searchingFacade.processSearchingEmployee("sky");
+
+        //Then
+        Assert.assertEquals(1,employees.size());
+        Assert.assertEquals("Javorsky",employees.get(0).getLastname());
 
         //CleanUp
         try {
             employeeDao.deleteById(johnSmith.getId());
             employeeDao.deleteById(stephanieClarckson.getId());
-            employeeDao.deleteById(lindaKovalsky.getId());
             employeeDao.deleteById(lukasJavorsky.getId());
         } catch (Exception e) {
             //do nothing
@@ -61,9 +65,10 @@ public class SearchingFacadeTestSuite {
         companyDao.save(dataMaesters);
         companyDao.save(greyMatter);
 
-
-        searchingFacade.processSearchingCompany("sters");
-
+        List<Company> companies = searchingFacade.processSearchingCompany("sters");
+        //Then
+        Assert.assertEquals(1,companies.size());
+        Assert.assertEquals("Data Maesters",companies.get(0).getName());
         //CleanUp
         try {
             companyDao.deleteById(softwareMachine.getId());
