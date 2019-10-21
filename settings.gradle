@@ -15,4 +15,4 @@ include 'kodilla-sudoku'
 include 'kodilla-jdbc'
 include 'kodilla-sudoku'
 include 'kodilla-hibernate'
-
+include 'kodilla-patterns2'
